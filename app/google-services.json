@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "791095613213",
+    "project_id": "alpha-rt-database",
+    "storage_bucket": "alpha-rt-database.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791095613213:android:cb24929851110a64e8b3f4",
+        "android_client_info": {
+          "package_name": "com.cyberproject.alpha"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDNR6l90ZqFWSmXjSPBuX9wIhqNtUO84VY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

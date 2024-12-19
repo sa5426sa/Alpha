@@ -2,12 +2,9 @@ package com.cyberproject.alpha;
 
 import android.os.Bundle;
 import android.widget.EditText;
-
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,5 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         editTextEmailAddress = findViewById(R.id.editTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextPassword);
+
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
     }
 }
