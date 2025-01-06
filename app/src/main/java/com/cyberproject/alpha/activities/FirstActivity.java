@@ -1,6 +1,8 @@
-package com.cyberproject.alpha;
+package com.cyberproject.alpha.activities;
 
 import static com.cyberproject.alpha.FBRef.auth;
+
+import static com.cyberproject.alpha.Tags.*;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cyberproject.alpha.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseNetworkException;
@@ -24,7 +27,7 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
 
-public class MainActivity extends AppCompatActivity {
+public class FirstActivity extends AppCompatActivity {
 
     EditText editTextEmailAddress, editTextPassword;
 
@@ -51,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         String s = item.getTitle().toString();
         Intent intent;
         if (s.equals("Register")) {
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, FirstActivity.class);
             startActivity(intent);
         } else if (s.equals("Pick Image")) {
             intent = new Intent(this, SecondActivity.class);
@@ -75,20 +78,20 @@ public class MainActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     progressDialog.dismiss();
                     if (task.isSuccessful()) {
-                        Log.i("MainActivity", "createUserWithEmailAndPassword:success");
-                        Toast.makeText(MainActivity.this, "User created successfully.", Toast.LENGTH_SHORT).show();
+                        Log.i(tagFirst, "createUserWithEmailAndPassword:success");
+                        Toast.makeText(FirstActivity.this, "User created successfully.", Toast.LENGTH_SHORT).show();
                     } else {
                         Exception exception = task.getException();
                         if (exception instanceof FirebaseAuthWeakPasswordException) {
-                            Toast.makeText(MainActivity.this, "Password is too weak!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FirstActivity.this, "Password is too weak!", Toast.LENGTH_SHORT).show();
                         } else if (exception instanceof FirebaseAuthInvalidCredentialsException) {
-                            Toast.makeText(MainActivity.this, "Invalid email address.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FirstActivity.this, "Invalid email address.", Toast.LENGTH_SHORT).show();
                         } else if (exception instanceof FirebaseAuthUserCollisionException) {
-                            Toast.makeText(MainActivity.this, "User already exists!", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FirstActivity.this, "User already exists!", Toast.LENGTH_SHORT).show();
                         } else if (exception instanceof FirebaseNetworkException) {
-                            Toast.makeText(MainActivity.this, "Network error. Check your connection and try again.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FirstActivity.this, "Network error. Check your connection and try again.", Toast.LENGTH_SHORT).show();
                         } else {
-                            Toast.makeText(MainActivity.this, "An unknown error occurred.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(FirstActivity.this, "An unknown error occurred.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }

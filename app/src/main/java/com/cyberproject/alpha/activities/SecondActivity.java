@@ -1,4 +1,4 @@
-package com.cyberproject.alpha;
+package com.cyberproject.alpha.activities;
 
 import static com.cyberproject.alpha.FBRef.refImageGallery;
 
@@ -25,6 +25,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.cyberproject.alpha.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.Blob;
@@ -77,7 +78,7 @@ public class SecondActivity extends AppCompatActivity {
         String s = item.getTitle().toString();
         Intent intent;
         if (s.equals("Register")) {
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, FirstActivity.class);
             startActivity(intent);
         } else if (s.equals("Pick Image")) {
             intent = new Intent(this, SecondActivity.class);
