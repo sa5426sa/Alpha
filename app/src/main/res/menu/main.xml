@@ -3,4 +3,6 @@
 
     <item android:title="Register" />
     <item android:title="Pick Image" />
+    <item android:title="Snap Image" />
+    <item android:title="Reminder" />
 </menu>

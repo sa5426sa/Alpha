@@ -59,6 +59,12 @@ public class FirstActivity extends AppCompatActivity {
         } else if (s.equals("Pick Image")) {
             intent = new Intent(this, SecondActivity.class);
             startActivity(intent);
+        } else if (s.equals("Snap Image")) {
+            intent = new Intent(this, ThirdActivity.class);
+            startActivity(intent);
+        } else if (s.equals("Reminder")) {
+            intent = new Intent(this, FourthActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

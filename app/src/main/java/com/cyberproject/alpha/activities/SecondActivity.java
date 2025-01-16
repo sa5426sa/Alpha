@@ -1,6 +1,7 @@
 package com.cyberproject.alpha.activities;
 
 import static com.cyberproject.alpha.FBRef.refImageGallery;
+import static com.cyberproject.alpha.Tags.*;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -83,6 +84,12 @@ public class SecondActivity extends AppCompatActivity {
         } else if (s.equals("Pick Image")) {
             intent = new Intent(this, SecondActivity.class);
             startActivity(intent);
+        } else if (s.equals("Snap Image")) {
+            intent = new Intent(this, ThirdActivity.class);
+            startActivity(intent);
+        } else if (s.equals("Reminder")) {
+            intent = new Intent(this, FourthActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -150,7 +157,7 @@ public class SecondActivity extends AppCompatActivity {
                     Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                     imageView.setImageBitmap(bitmap);
                 } else {
-                    Log.w("SecondActivity", "No such document exists.");
+                    Log.w(tagSecond, "No such document exists.");
                 }
                 pd.dismiss();
             }
@@ -159,7 +166,7 @@ public class SecondActivity extends AppCompatActivity {
             public void onFailure(@NonNull Exception e) {
                 pd.dismiss();
                 Toast.makeText(SecondActivity.this, "Image download failed.", Toast.LENGTH_SHORT).show();
-                Log.e("SecondActivity", "image download error:", e);
+                Log.e(tagSecond, "image download error:", e);
             }
         });
     }
@@ -190,12 +197,12 @@ public class SecondActivity extends AppCompatActivity {
         ref.document(name).set(imageMap).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
-                Log.d("SecondActivity", "DocumentSnapshot written successfully.");
+                Log.d(tagSecond, "DocumentSnapshot written successfully.");
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Log.e("SecondActivity", "Error writing document:", e);
+                Log.e(tagSecond, "Error writing document:", e);
             }
         });
         pd.dismiss();
